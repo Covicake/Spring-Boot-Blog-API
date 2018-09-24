@@ -3,12 +3,12 @@ package me.covicake.blog.Services;
 import me.covicake.blog.Entities.Post;
 import me.covicake.blog.Repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import javax.persistence.Entity;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Entity
+@Service
 public class PostService {
 
     @Autowired

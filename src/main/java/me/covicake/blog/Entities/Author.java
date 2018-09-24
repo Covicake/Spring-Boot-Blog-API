@@ -20,7 +20,7 @@ public class Author {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "author")
     @JsonIgnoreProperties(value = "author", allowSetters = true)
-    private List<Posts> posts = new ArrayList<>();
+    private List<Post> posts = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -50,11 +50,11 @@ public class Author {
         this.password = password;
     }
 
-    public List<Posts> getPosts() {
+    public List<Post> getPosts() {
         return posts;
     }
 
-    public void setPosts(List<Posts> posts) {
+    public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
 }
