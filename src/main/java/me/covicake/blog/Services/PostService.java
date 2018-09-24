@@ -17,4 +17,8 @@ public class PostService {
     public List<Post> findAllPosts() {
         return postRepository.findAll().stream().collect(Collectors.toList());
     }
+
+    public void createPost(Post post) {
+        postRepository.save(post);
+    }
 }
