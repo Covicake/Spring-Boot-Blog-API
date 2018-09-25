@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class AuthorService {
@@ -26,7 +26,13 @@ public class AuthorService {
     public Author findAuthorByUsername(String username) {
         return authorRepository.findByUsername(username);
     }
+
     public List<Author> getAuthors() {
-        return authorRepository.findAll().stream().collect(Collectors.toList());
+        List<Author> authors = new ArrayList<>();
+        authorRepository.findAll().forEach(author -> {
+            author.setPassword("");
+            authors.add(author);
+        });
+        return authors;
     }
 }
